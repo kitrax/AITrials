@@ -1,0 +1,17 @@
+Insight 1 - How I got the NVIDIA GPU to work with LLM
+-If you see error 0x0003 while opening NVIDIA app 
+OR 
+error code 7031 nvidia local system container in eventvwr
+OR
+are unable to restart any of NVIDIA services
+
+It's best to uninstall everything NVIDIA from your system. Do a restart and then install NVIDIA App. Then restart and install NVIDIA driver through the App.
+While installing CUDA, choose custom installation and just install the CUDA related items.
+
+
+Insight 2-
+If for some reason you feel that Ollama is not using your graphics card
+First verify the same though nvidia-smi command and nvcc --version
+
+Second, if the model you're using with Ollama is too large to fit within your GPU's VRAM, 
+Ollama will automatically offload parts of the model to system RAM and utilize the CPU for inference, instead of trying to force everything into VRAM. 
